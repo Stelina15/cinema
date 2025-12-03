@@ -281,3 +281,48 @@ p {
   opacity: 0;
   transform: translate(-50%, -60%);
 }
+/* ========================= */
+/* ----- PAGE SERVICES ----- */
+/* ========================= */
+
+.services-section {
+  background-color: #ffffff;
+  padding-bottom: 80px;
+}
+
+/* grille des services */
+
+.services-grid {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* cartes */
+
+.service-card {
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 22px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* effet hover */
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
