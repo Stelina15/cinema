@@ -5,6 +5,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* ========================= */
+/*        VARIABLES CSS      */
+/* ========================= */
+
+:root {
+  --color-principale: #ffcf2f;
+  --color-principale-light: #ffe17a;
+  --color-noir: #0d0d0d;
+  --color-gris-fond: #f4f4f4;
+  --color-texte-clair: #f5f5f5;
+  --color-texte: #222;
+
+  --shadow-soft: 0 4px 15px rgba(0,0,0,0.08);
+  --shadow-medium: 0 8px 25px rgba(0,0,0,0.15);
+}
 
 /* ----- Base globale ----- */
 
@@ -30,7 +45,7 @@ ul {
 /* ----- NAVBAR ----- */
 
 .main-nav {
-  background-color: #0d111c;
+  background-color: var(--color-noir);
   color: white;
   display: flex;
   align-items: center;
@@ -57,7 +72,7 @@ ul {
 .main-nav a:hover {
   opacity: 0.7;
 }
-/* ----- HERO ----- */
+
 
 /* ========================= */
 /* ------- PAGE ACCUEIL ---- */
@@ -122,8 +137,8 @@ ul {
 .cta {
   display: inline-block;
   padding: 12px 34px;
-  background-color: #ffcf2f;
-  color: #000;
+  background-color: var(--color-principale);
+  color: var(--color-noir);
   border-radius: 999px;
   font-weight: 700;
   text-transform: uppercase;
@@ -133,7 +148,7 @@ ul {
 }
 
 .cta:hover {
-  background-color: #ffe17a;
+  background-color: var(--color-principale-light);
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.5);
 }
@@ -220,7 +235,7 @@ p {
   top: 35px;
   padding: 10px 26px;
   border-radius: 999px;
-  border: 2px solid white;
+  border: 2px solid var(--color-texte-clair);
   background: rgba(0,0,0,0.65);
   color: white;
   font-size: 1rem;
@@ -562,8 +577,7 @@ p {
 }
 
 .contact-info i {
-  color: #ffcf2f;
-  font-size: 1.2rem;
+    color: var(--color-principale);
 }
 
 /* ----- Formulaire ----- */
@@ -615,8 +629,8 @@ p {
 .contact-btn {
   margin-top: 22px;
   padding: 12px 26px;
-  background-color: #ffcf2f;
-  color: #000;
+  background-color: var(--color-principale);
+  color: var(--color-noir);
   border: none;
   border-radius: 999px;
   font-size: 1rem;
@@ -626,7 +640,7 @@ p {
 }
 
 .contact-btn:hover {
-  background-color: #ffe07f;
+  background-color: var(--color-principale-light);
   transform: translateY(-3px);
 }
 
