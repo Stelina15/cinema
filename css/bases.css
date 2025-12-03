@@ -97,3 +97,35 @@ ul {
   background-color: #ffe388;
   transform: translateY(-2px);
 }
+/* ----- LAYOUT GLOBAL DES PAGES ----- */
+
+main {
+  padding: 60px 20px;
+}
+
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* ----- TITRES ----- */
+
+h1, h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
