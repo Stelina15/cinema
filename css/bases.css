@@ -379,3 +379,63 @@ p {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.18);
 }
+/* ========================= */
+/* ----- PAGE SNACKING ----- */
+/* ========================= */
+
+.snacking-section {
+  padding-bottom: 80px;
+  background-color: #fafafa;
+}
+
+.snack-content {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.snack-img {
+  width: 45%;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* effet hover image */
+.snack-img:hover {
+  transform: translateY(-6px);
+  filter: brightness(1.1);
+}
+
+/* texte */
+
+.snack-text {
+  flex: 1;
+}
+
+.snack-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.snack-text p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .snack-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .snack-img {
+    width: 80%;
+  }
+}
