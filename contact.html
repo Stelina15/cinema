@@ -6,12 +6,13 @@
   <title>Cinéma Lumière – Contact</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/bases.css">
 </head>
 <body>
 
   <header>
-   <nav class="main-nav">
+    <nav class="main-nav">
       <div class="nav-logo">Cinéma Lumière</div>
       <ul>
         <li><a href="index.html">Accueil</a></li>
@@ -25,14 +26,44 @@
     </nav>
   </header>
 
-<main>
-  <section>
-    <h1>Contact</h1>
-    <p>Formulaire de contact et informations complémentaires.</p>
-  </section>
-</main>
+  <main>
+    <section class="contact-section">
+      <header class="section-header">
+        <h1>Nous contacter</h1>
+        <a href="index.html" class="return-btn">Accueil</a>
+      </header>
 
-  <footer></footer>
+      <div class="contact-wrapper">
+
+        <div class="contact-info">
+          <h2><i class="fa-solid fa-circle-info"></i> Informations</h2>
+          <p><i class="fa-solid fa-location-dot"></i> 12 Rue du Cinéma, 37000 TOURS</p>
+          <p><i class="fa-solid fa-phone"></i> 01 23 45 67 89</p>
+          <p><i class="fa-solid fa-envelope"></i> contact@cinema-lumiere.fr</p>
+        </div>
+
+        <form class="contact-form">
+          <h2><i class="fa-solid fa-paper-plane"></i> Envoyer un message</h2>
+
+          <label>Votre nom :</label>
+          <input type="text" required>
+
+          <label>Votre email :</label>
+          <input type="email" required>
+
+          <label>Votre message :</label>
+          <textarea rows="5" required></textarea>
+
+          <button type="submit" class="contact-btn">Envoyer</button>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    
+  </footer>
 
 </body>
 </html>
