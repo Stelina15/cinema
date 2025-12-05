@@ -25,7 +25,7 @@
 
 html, body {
   font-family: "Poppins", sans-serif;
-  background-color: #f5f5f5;
+  background-color: #000;
   color: #222;
   height: 100%;
 }
@@ -74,6 +74,19 @@ ul {
 }
 
 
+/* Fonds cinéma pour les pages internes */
+
+.services-section,
+.rooms-section,
+.snacking-section,
+.gallery-section,
+.contact-section {
+  background-image: url("../img/cine.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+
 /* ========================= */
 /* ------- PAGE ACCUEIL ---- */
 /* ========================= */
@@ -94,7 +107,15 @@ ul {
 
   padding: 0 20px;
   color: white;
+
+   
+  max-width: 100%;
+  margin: 0;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
 
 /* contenu centré */
 
@@ -193,8 +214,16 @@ p {
   background-image: url("../img/cine.jpg");
   background-size: cover;
   background-position: center;
-  padding-bottom: 80px;
+
+  /* pleine largeur comme les autres pages internes */
+  max-width: 100%;
+  margin: 0;
+  padding: 60px 20px 80px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
 
 /* ----- HEADER DE SECTION ----- */
 
@@ -342,9 +371,14 @@ p {
 /* ========================= */
 
 .services-section {
-  background-color: #ffffff;
-  padding-bottom: 80px;
+  max-width: 100%;
+  margin: 0;
+  padding: 60px 20px 80px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
 
 /* grille des services */
 
@@ -387,9 +421,14 @@ p {
 /* ========================= */
 
 .rooms-section {
-  background-color: #f8f8f8;
-  padding-bottom: 80px;
+  max-width: 100%;
+  margin: 0;
+  padding: 60px 20px 80px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
 
 /* grille */
 
@@ -440,9 +479,14 @@ p {
 /* ========================= */
 
 .snacking-section {
-  padding-bottom: 80px;
-  background-color: #fafafa;
+  max-width: 100%;
+  margin: 0;
+  padding: 60px 20px 80px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
 
 .snack-content {
   max-width: 1100px;
@@ -500,10 +544,15 @@ p {
 /* ========================= */
 
 .gallery-section {
-  background-color: #111;
-  padding-bottom: 80px;
+  max-width: 100%;
+  margin: 0;
+  padding: 60px 20px 80px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
   color: white;
 }
+
 
 /* grille d'images */
 
@@ -539,9 +588,14 @@ p {
 /* ========================= */
 
 .contact-section {
-  padding-bottom: 80px;
-  background-color: #f4f4f4;
+  max-width: 100%;
+  margin: 0;
+  padding: 60px 20px 80px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
 
 /* Wrapper des deux colonnes */
 
@@ -720,5 +774,77 @@ p {
 
   .social-icons a {
     margin: 0 10px;
+  }
+}
+/* ========================= */
+/* ---- RESPONSIVE GLOBAL -- */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+  /* NAVBAR : réduire les paddings et taille du texte */
+  .main-nav {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .main-nav a {
+    font-size: 0.95rem;
+  }
+
+  /* HERO : titre et texte moins gros */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Sections : moins de marges pour éviter le gros scroll */
+  main {
+    padding: 40px 10px;
+  }
+
+  section {
+    padding: 24px 14px;
+    margin-top: 10px;
+  }
+
+  /* Grilles : plus souples sur mobile */
+  .services-grid,
+  .rooms-grid,
+  .gallery-grid {
+    gap: 14px;
+  }
+
+  .service-card,
+  .room-card {
+    padding: 16px 14px;
+  }
+
+  /* Contact + Snacking : colonne */
+  .contact-wrapper {
+    padding: 10px;
+  }
+
+  .snack-content {
+    padding: 10px;
+  }
+
+  /* Footer : tout centré */
+  .site-footer {
+    padding: 40px 16px 24px;
   }
 }
