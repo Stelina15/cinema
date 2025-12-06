@@ -1,3 +1,7 @@
+/* ========================================================= */
+/* ==================== RESET & VARIABLES ================== */
+/* ========================================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +15,7 @@
   --color-gris-fond: #f4f4f4;
   --color-texte-clair: #f5f5f5;
   --color-texte: #222;
+
   --shadow-soft: 0 4px 15px rgba(0,0,0,0.08);
   --shadow-medium: 0 8px 25px rgba(0,0,0,0.15);
 }
@@ -18,7 +23,7 @@
 html, body {
   font-family: "Poppins", sans-serif;
   background-color: #000;
-  color: #222;
+  color: var(--color-texte);
   height: 100%;
 }
 
@@ -27,11 +32,12 @@ a {
   color: inherit;
 }
 
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
 
-/* ----- NAVBAR ----- */
+
+/* ========================================================= */
+/* ========================= NAVBAR ========================= */
+/* ========================================================= */
 
 .main-nav {
   background-color: var(--color-noir);
@@ -58,9 +64,7 @@ ul {
   transition: opacity 0.2s ease;
 }
 
-.main-nav a:hover {
-  opacity: 0.7;
-}
+.main-nav a:hover { opacity: 0.7; }
 
 header::after {
   content: "";
@@ -76,7 +80,9 @@ header::after {
 }
 
 
-/* Fonds cinéma */
+/* ========================================================= */
+/* ===================== FOND CINÉMA ======================= */
+/* ========================================================= */
 
 body:not(.home) {
   background-image:
@@ -84,13 +90,13 @@ body:not(.home) {
     url("../img/cine.jpg");
   background-size: cover;
   background-position: center top;
-  background-attachment: fixed; /* effet plus “cinéma” et cadré */
+  background-attachment: fixed;
 }
 
 
-/* ========================= */
-/* ------- PAGE ACCUEIL ---- */
-/* ========================= */
+/* ========================================================= */
+/* ====================== PAGE ACCUEIL ===================== */
+/* ========================================================= */
 
 .hero {
   height: 100vh;
@@ -99,7 +105,6 @@ body:not(.home) {
     url("../img/backround.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,15 +130,14 @@ body:not(.home) {
 .hero h1 {
   font-size: 3.2rem;
   margin-bottom: 20px;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .hero p {
   font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
   color: #e6e6e6;
+  margin-bottom: 30px;
 }
 
 .cta {
@@ -146,7 +150,7 @@ body:not(.home) {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  transition: 0.25s ease;
 }
 
 .cta:hover {
@@ -155,17 +159,18 @@ body:not(.home) {
   box-shadow: 0 12px 28px rgba(0,0,0,0.5);
 }
 
-/* ----- LAYOUT GLOBAL DES PAGES ----- */
 
-main {
-  padding: 0 20px 60px;
-}
+/* ========================================================= */
+/* ====================== STRUCTURE GLOBALE ================ */
+/* ========================================================= */
+
+main { padding: 0 20px 60px; }
 
 section {
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: white;
+  background: white;
   border-radius: 12px;
   box-shadow: var(--shadow-soft);
 }
@@ -173,31 +178,15 @@ section {
 h1, h2 {
   margin-bottom: 20px;
   font-weight: 700;
-  letter-spacing: 0.03em;
 }
 
-h1 {
-  font-size: 2.2rem;
-}
 
-p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
 
-/* ========================= */
-/* ----- PAGE A PROPOS ----- */
-/* ========================= */
+/* ========================================================= */
+/* ====================== PAGES INTERNES =================== */
+/* ========================================================= */
 
-.about-section {
-  max-width: 100%;
-  padding: 0 20px 80px;
-  background-color: transparent;
-  border-radius: 0;
-  box-shadow: none;
-}
-
+/* En-têtes avec rideaux */
 .section-header {
   position: relative;
   padding: 40px;
@@ -206,7 +195,6 @@ p {
   background-position: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  margin: 0;
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
@@ -215,16 +203,24 @@ p {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.55);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: inherit;
 }
 
 .section-header h1 {
   position: relative;
   color: white;
-  font-size: 2.2rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+.section-header h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin-top: 10px;
+  background: var(--color-principale);
+  border-radius: 999px;
 }
 
 .return-btn {
@@ -232,13 +228,12 @@ p {
   right: 20px;
   top: 20px;
   padding: 10px 26px;
-  border-radius: 999px;
   border: 2px solid var(--color-texte-clair);
+  border-radius: 999px;
   background: rgba(0,0,0,0.65);
   color: white;
   font-weight: 600;
   transition: 0.25s ease;
-  z-index: 3;
 }
 
 .return-btn:hover {
@@ -246,29 +241,19 @@ p {
   transform: translateY(-2px);
 }
 
+/* Spécifique À propos */
+.about-section {
+  max-width: 100%;
+  padding: 0 20px 80px;
+  background: none;
+}
+
 .about-stage {
   position: relative;
   max-width: 1100px;
-  margin: 20px auto 0;
+  margin: 20px auto;
   padding: 40px 20px;
   overflow: hidden;
-}
-
-.about-hint {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #f5f5f5;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.6);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-  opacity: 1;
-  z-index: 3;
-  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .curtain {
@@ -278,45 +263,52 @@ p {
   width: 50%;
   background-image: url("../img/rideaux.png");
   background-size: cover;
-  background-position: center;
   z-index: 2;
-  box-shadow: 0 0 25px rgba(0,0,0,0.9);
-  transition: transform 1s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
-.curtain-left {
-  left: 0;
-}
+.curtain-left { left: 0; }
+.curtain-right { right: 0; }
 
-.curtain-right {
-  right: 0;
-}
+.about-stage:hover .curtain-left { transform: translateX(-100%); }
+.about-stage:hover .curtain-right { transform: translateX(100%); }
 
 .about-content {
   position: relative;
-  z-index: 1;
   background: rgba(255,255,255,0.94);
   border-radius: 18px;
   padding: 30px 40px;
   box-shadow: var(--shadow-medium);
 }
+.about-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 999px;
 
-.about-stage:hover .curtain-left {
-  transform: translateX(-100%);
+  background: rgba(0,0,0,0.85);
+  border: 2px solid var(--color-principale);
+  text-shadow: 0 0 6px rgba(0,0,0,0.9);
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.8);
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
-
-.about-stage:hover .curtain-right {
-  transform: translateX(100%);
-}
-
 .about-stage:hover .about-hint {
   opacity: 0;
   transform: translate(-50%, -60%);
 }
 
-/* ========================= */
-/* ----- PAGE SERVICES ----- */
-/* ========================= */
+
+/* ========================================================= */
+/* ========================= SERVICES ======================= */
+/* ========================================================= */
 
 .services-section,
 .rooms-section,
@@ -325,9 +317,7 @@ p {
 .contact-section {
   max-width: 100%;
   padding: 0 20px 80px;
-  background-color: transparent;
-  border-radius: 0;
-  box-shadow: none;
+  background: none;
 }
 
 .services-grid {
@@ -339,11 +329,11 @@ p {
 }
 
 .service-card {
-  background-color: #f4f4f4;
-  border-radius: 12px;
+  background: #f4f4f4;
   padding: 22px 20px;
+  border-radius: 12px;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .service-card:hover {
@@ -351,9 +341,19 @@ p {
   box-shadow: 0 10px 22px rgba(0,0,0,0.18);
 }
 
-/* ========================= */
-/* ------- PAGE SALLES ----- */
-/* ========================= */
+/* Pseudo-class :nth-child */
+.services-grid .service-card:first-child {
+  border: 2px solid var(--color-principale);
+}
+
+.services-grid .service-card:nth-child(2n) {
+  background-color: #ffffff;
+}
+
+
+/* ========================================================= */
+/* ========================== SALLES ======================== */
+/* ========================================================= */
 
 .rooms-grid {
   max-width: 1100px;
@@ -364,12 +364,12 @@ p {
 }
 
 .room-card {
-  background-color: white;
+  background: white;
   border-radius: 12px;
   box-shadow: var(--shadow-soft);
-  overflow: hidden;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  transition: 0.2s;
 }
 
 .room-card:hover {
@@ -377,9 +377,10 @@ p {
   box-shadow: 0 10px 25px rgba(0,0,0,0.18);
 }
 
-/* ========================= */
-/* ----- PAGE SNACKING ----- */
-/* ========================= */
+
+/* ========================================================= */
+/* ========================= SNACKING ======================= */
+/* ========================================================= */
 
 .snack-content {
   max-width: 1100px;
@@ -387,14 +388,13 @@ p {
   display: flex;
   align-items: center;
   gap: 40px;
-  padding: 20px;
 }
 
 .snack-img {
   width: 45%;
   border-radius: 18px;
   box-shadow: var(--shadow-medium);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: 0.3s;
 }
 
 .snack-img:hover {
@@ -402,9 +402,53 @@ p {
   filter: brightness(1.1);
 }
 
-/* ========================= */
-/* ------- PAGE GALERIE ---- */
-/* ========================= */
+.snack-text {
+  background: rgba(0,0,0,0.55); /* noir transparent */
+  padding: 30px;
+  border-radius: 18px;
+  color: white; /* texte bien lisible */
+}
+/* Animation pour la section Snacking */
+@keyframes snackFadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes snackFadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.snack-img,
+.snack-text {
+  opacity: 0;
+}
+
+.snack-img {
+  animation: snackFadeLeft 1.5s ease forwards;
+}
+
+.snack-text {
+  animation: snackFadeRight 1.5s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* ========================================================= */
+/* ========================= GALERIE ======================== */
+/* ========================================================= */
 
 .gallery-grid {
   max-width: 1100px;
@@ -415,30 +459,62 @@ p {
   gap: 18px;
 }
 
+/* Animation d'apparition type "mur d'affiches" */
+@keyframes galleryPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(30px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
 .gallery-grid img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.35s ease, filter 0.35s ease;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
+  opacity: 0;
+  transform: scale(0.85) translateY(30px);
+  animation: galleryPopIn 0.7s ease forwards;
 }
 
+/* Décalage progressif pour chaque image (stagger) */
+.gallery-grid img:nth-child(1) { animation-delay: 0.05s; }
+.gallery-grid img:nth-child(2) { animation-delay: 0.12s; }
+.gallery-grid img:nth-child(3) { animation-delay: 0.19s; }
+.gallery-grid img:nth-child(4) { animation-delay: 0.26s; }
+.gallery-grid img:nth-child(5) { animation-delay: 0.33s; }
+.gallery-grid img:nth-child(6) { animation-delay: 0.40s; }
+
+/* Hover "affiche qui se détache du mur" */
 .gallery-grid img:hover {
-  transform: scale(1.08);
-  filter: brightness(1.15);
+  transform: scale(1.08) translateY(-8px) rotate(-1.5deg);
+  filter: brightness(1.12) saturate(1.05);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.7);
 }
 
-/* ========================= */
-/* ------- PAGE CONTACT ---- */
-/* ========================= */
+/* Petit traitement spécial sur chaque 3e image (déjà demandé par ton prof) */
+.gallery-grid img:nth-child(3n) {
+  filter: brightness(1.02) contrast(1.08);
+}
+
+
+/* ========================================================= */
+/* ========================== CONTACT ======================= */
+/* ========================================================= */
 
 .contact-wrapper {
   max-width: 1100px;
   margin: 40px auto;
   display: flex;
   gap: 40px;
-  padding: 20px;
 }
 
 .contact-info,
@@ -449,12 +525,55 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
-/* ======================= */
-/* ------- FOOTER -------- */
-/* ======================= */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-principale);
+  box-shadow: 0 0 0 2px rgba(255,207,47,0.3);
+}
+
+.contact-btn {
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-principale);
+  color: var(--color-noir);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.contact-info i {
+  color: var(--color-principale);
+  margin-right: 8px;
+}
+
+
+/* ========================================================= */
+/* =========================== FOOTER ======================= */
+/* ========================================================= */
 
 .site-footer {
-  background-color: var(--color-noir);
+  background: var(--color-noir);
   color: var(--color-texte-clair);
   padding: 50px 20px 30px;
   margin-top: 60px;
@@ -462,7 +581,7 @@ p {
 
 .footer-content {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   gap: 40px;
@@ -473,7 +592,7 @@ p {
   color: var(--color-principale);
   font-size: 1.4rem;
   margin-right: 15px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: 0.25s;
 }
 
 .social-icons a:hover {
@@ -481,46 +600,12 @@ p {
   opacity: 0.8;
 }
 
-/* ========================= */
-/* ---- RESPONSIVE GLOBAL -- */
-/* ========================= */
 
-@media (max-width: 900px) {
+/* ========================================================= */
+/* ========================== TOPBAR ======================== */
+/* ========================================================= */
 
-  .main-nav {
-    padding: 12px 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  main {
-    padding: 0 10px 40px;
-  }
-
-  section {
-    padding: 24px 14px;
-    margin-top: 10px;
-  }
-
-  .services-grid,
-  .rooms-grid,
-  .gallery-grid {
-    gap: 14px;
-  }
-
-  .snack-content {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-body:not(.home) header {
-  display: none;
-}
+body:not(.home) header { display: none; }
 
 .internal-topbar {
   width: 100%;
@@ -532,31 +617,54 @@ body:not(.home) header {
   justify-content: space-between;
 }
 
-.internal-logo {
-  height: 48px;
-  display: block;
-}
-
 .internal-homebtn {
   padding: 8px 26px;
   border: 2px solid white;
   border-radius: 999px;
-  color: white;
   font-weight: 600;
-  transition: 0.25s ease;
+  transition: 0.25s;
 }
 
 .internal-homebtn:hover {
   opacity: 0.7;
   transform: translateY(-2px);
 }
+.internal-logo {
+  height: 58px;
+  width: auto;
+  max-width: 140px; /* sécurité pour éviter qu’il s'étire si l’image est très large */
+  object-fit: contain;
+}
 
-.about-section .section-content,
-.services-section .section-content,
-.rooms-section .section-content,
-.snacking-section .section-content,
-.gallery-section .section-content,
-.contact-section .section-content {
-  max-width: 1000px;
-  margin: 0 auto;
+
+/* ========================================================= */
+/* ======================= RESPONSIVE ======================= */
+/* ========================================================= */
+
+@media (max-width: 900px) {
+
+  .main-nav {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero h1 { font-size: 2.2rem; }
+
+  main { padding: 0 10px 40px; }
+
+  section {
+    padding: 24px 14px;
+    margin-top: 10px;
+  }
+
+  .services-grid,
+  .rooms-grid,
+  .gallery-grid { gap: 14px; }
+
+  .snack-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
