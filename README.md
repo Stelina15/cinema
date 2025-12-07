@@ -108,7 +108,7 @@ Aucune installation particulière :
 ## Hébergement via GitHub Pages
 
 Le site est accessible à l'adresse :  
-[(https://stelina15.github.io/cinema/)
+https://stelina15.github.io/cinema/
 
 ## 👤 Auteur
 
