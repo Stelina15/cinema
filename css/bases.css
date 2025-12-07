@@ -280,30 +280,6 @@ h1, h2 {
   padding: 30px 40px;
   box-shadow: var(--shadow-medium);
 }
-.about-hint {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 12px 26px;
-  border-radius: 999px;
-
-  background: rgba(0,0,0,0.85);
-  border: 2px solid var(--color-principale);
-  text-shadow: 0 0 6px rgba(0,0,0,0.9);
-
-  box-shadow: 0 6px 18px rgba(0,0,0,0.8);
-  opacity: 1;
-  z-index: 10;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.about-stage:hover .about-hint {
-  opacity: 0;
-  transform: translate(-50%, -60%);
-}
 
 
 /* ========================================================= */
@@ -328,12 +304,36 @@ h1, h2 {
   gap: 24px;
 }
 
+/* Cartes services + animation d'entrée */
 .service-card {
+  position: relative;
   background: #f4f4f4;
   padding: 22px 20px;
   border-radius: 12px;
   box-shadow: var(--shadow-soft);
-  transition: 0.2s ease;
+  /* important : préciser transform dans la transition */
+  transition: transform 0.2s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+
+  opacity: 0;
+  animation: serviceFadeUp 0.7s ease forwards;
+}
+
+/* reflets de lumière sur la carte */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent 60%);
+  opacity: 0;
+  transform: translate3d(-30%, -30%, 0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .service-card:hover {
@@ -349,6 +349,40 @@ h1, h2 {
 .services-grid .service-card:nth-child(2n) {
   background-color: #ffffff;
 }
+
+/* Effet focus : quand on survole une carte, les autres se calment */
+.services-grid:hover .service-card {
+  opacity: 0.6;
+  transform: translateY(0);
+  box-shadow: var(--shadow-soft);
+}
+
+.services-grid:hover .service-card:hover {
+  opacity: 1;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+
+/* Animation d'entrée des cartes */
+@keyframes serviceFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Décalage progressif de l’animation */
+.services-grid .service-card:nth-child(1) { animation-delay: 0.1s; }
+.services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
+.services-grid .service-card:nth-child(3) { animation-delay: 0.3s; }
+.services-grid .service-card:nth-child(4) { animation-delay: 0.4s; }
+.services-grid .service-card:nth-child(5) { animation-delay: 0.5s; }
+.services-grid .service-card:nth-child(6) { animation-delay: 0.6s; }
+
 
 
 /* ========================================================= */
@@ -459,17 +493,17 @@ h1, h2 {
   gap: 18px;
 }
 
-/* Animation d'apparition type "mur d'affiches" */
-@keyframes galleryPopIn {
-  from {
-    opacity: 0;
-    transform: scale(0.85) translateY(30px);
-    filter: blur(6px);
+
+@keyframes galleryHighlight {
+  0%, 100% {
+    transform: scale(1);
+    filter: grayscale(70%);
+    opacity: 0.5;
   }
-  to {
+  15%, 35% {
+    transform: scale(1.08);
+    filter: grayscale(0);
     opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -479,30 +513,31 @@ h1, h2 {
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transition: transform 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
-  opacity: 0;
-  transform: scale(0.85) translateY(30px);
-  animation: galleryPopIn 0.7s ease forwards;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+
+  
+  transform: scale(1);
+  filter: grayscale(70%);
+  opacity: 0.5;
+
+  
+  animation: galleryHighlight 18s ease-in-out infinite;
 }
 
-/* Décalage progressif pour chaque image (stagger) */
-.gallery-grid img:nth-child(1) { animation-delay: 0.05s; }
-.gallery-grid img:nth-child(2) { animation-delay: 0.12s; }
-.gallery-grid img:nth-child(3) { animation-delay: 0.19s; }
-.gallery-grid img:nth-child(4) { animation-delay: 0.26s; }
-.gallery-grid img:nth-child(5) { animation-delay: 0.33s; }
-.gallery-grid img:nth-child(6) { animation-delay: 0.40s; }
 
-/* Hover "affiche qui se détache du mur" */
+.gallery-grid img:nth-child(1) { animation-delay: 0s; }
+.gallery-grid img:nth-child(2) { animation-delay: 3s; }
+.gallery-grid img:nth-child(3) { animation-delay: 6s; }
+.gallery-grid img:nth-child(4) { animation-delay: 9s; }
+.gallery-grid img:nth-child(5) { animation-delay: 12s; }
+.gallery-grid img:nth-child(6) { animation-delay: 15s; }
+
+
 .gallery-grid img:hover {
-  transform: scale(1.08) translateY(-8px) rotate(-1.5deg);
-  filter: brightness(1.12) saturate(1.05);
+  transform: scale(1.1);
+  filter: grayscale(0);
+  opacity: 1;
   box-shadow: 0 18px 35px rgba(0,0,0,0.7);
-}
-
-/* Petit traitement spécial sur chaque 3e image (déjà demandé par ton prof) */
-.gallery-grid img:nth-child(3n) {
-  filter: brightness(1.02) contrast(1.08);
 }
 
 
