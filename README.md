@@ -112,5 +112,5 @@ Le site est accessible à l'adresse :
 
 ## 👤 Auteur
 
-Projet réalisé par **LICOS Stelina**, étudiant en Master 1 Economie d'entreprise.  
+Projet réalisé par **LICOS Stelina**, étudiante en Master 1 Economie d'entreprise.  
 Année universitaire : **2024–2025**.
