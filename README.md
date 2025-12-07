@@ -108,9 +108,9 @@ Aucune installation particulière :
 ## Hébergement via GitHub Pages
 
 Le site est accessible à l'adresse :  
-*(à compléter une fois GitHub Pages activé)*
+[(https://stelina15.github.io/cinema/)
 
 ## 👤 Auteur
 
-Projet réalisé par **LICOS Stelina**, étudiant en Master 1 Economie d'entreprise.  
+Projet réalisé par **LICOS Stelina**, étudiante en Master 1 Economie d'entreprise.  
 Année universitaire : **2024–2025**.
